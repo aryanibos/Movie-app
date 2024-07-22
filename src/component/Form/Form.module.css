@@ -1,0 +1,124 @@
+/* Small Screen */
+.container {
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__group {
+    margin-bottom: 1rem;
+}
+
+.form__group label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form__group input {
+    width: 90%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.inputError {
+    border-color: red;
+}
+
+.sec_form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.form__left {
+    margin-bottom: 1rem;
+}
+
+.form__title {
+    color: black;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.form__button {
+    padding: 0.75rem;
+    border: none;
+    width: 95%;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form__button:hover {
+    background-color: #333;
+}
+
+.form__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.form__select,
+.form__input {
+    width: 90%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Medium Screen */
+@media (min-width: 768px) {
+    .container {
+        margin: 2rem;
+    }
+
+    .sec_form {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .form__left {
+        flex-basis: 40%;
+    }
+
+    .form__right {
+        flex-basis: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .form__select,
+    .form__input {
+        width: 95%;
+    }
+}
+
+/* Large Screen */
+@media (min-width: 992px) {
+    .container {
+        max-width: 1200px;
+        margin: 3rem auto;
+    }
+    .form__select,
+    .form__input {
+        width: 94%;
+    }
+}
