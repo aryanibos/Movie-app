@@ -5,7 +5,7 @@ import Movie from "../Movie/Movie";
 
 function MovieList(props) {
     const { movies, title } = props;
-    const IMAGE = "http://image.tmdb.org/t/p/w300"
+    const IMAGE = "https://image.tmdb.org/t/p/w300"
 
     return (
         <div>

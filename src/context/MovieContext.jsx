@@ -8,7 +8,7 @@ export const MovieContextProvider = ({children}) => {
     const [movies, setMovie] = useState(data);
 
     const createMovie = (data) => {
-        setMovie([...movies, data])
+        setMovie((prevMovies) => [...prevMovies, data])
     }
   return (
     <MovieContext.Provider value={{movies, createMovie}}>{children}</MovieContext.Provider>

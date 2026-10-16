@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 function Detail() {
     const params = useParams();
     const id = params.id;
-    const IMAGE = "http://image.tmdb.org/t/p/w300"
+    const IMAGE = "https://image.tmdb.org/t/p/w300"
     const [movie, setMovie] = useState("");
 
     useEffect(() => {

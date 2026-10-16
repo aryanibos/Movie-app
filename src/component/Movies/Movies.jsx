@@ -6,8 +6,6 @@ import Movie from "../Movie/Movie";
 function Movies(props) {
     const { movies } = props;
 
-    console.log(movies);
-
     return (
         <div>
             <div className={styles.container}>

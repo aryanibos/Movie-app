@@ -58,6 +58,7 @@ function Form() {
         } else {
             setisTitleError(false);
             setisDateError(false);
+            setisPosterError(false);
             alert('Data Berhasil Di Input');
             return true;
         }

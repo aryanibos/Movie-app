@@ -9,11 +9,19 @@ function PopularMovie() {
     const [movies, setMovie] = useState([]);
 
     useEffect(() => {
+        let ignore = false;
         async function fetchPopular() {
-            const response = await axios(ENDPOINTS.POPULAR);
-            return setMovie(response.data.results)
+            try {
+                const response = await axios(ENDPOINTS.POPULAR);
+                if (!ignore) setMovie(response.data.results ?? []);
+            } catch (error) {
+                if (!ignore) console.error("Gagal memuat daftar film:", error);
+            }
         }
         fetchPopular();
+        return () => {
+            ignore = true;
+        };
     }, []);
     return (
         <>
