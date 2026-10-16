@@ -6,7 +6,8 @@ function Hero() {
 
     useEffect(() => {
         async function fetchMovie() {
-            const url = "https://www.omdbapi.com/?apikey=fcf50ae6&i=tt2975590";
+            const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+            const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=tt2975590`;
             const response = await fetch(url);
             const data = await response.json();
 
