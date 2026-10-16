@@ -130,3 +130,8 @@
     margin: auto;
   }
 }
+.detail__status {
+  padding: 4rem 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+}

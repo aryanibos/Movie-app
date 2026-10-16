@@ -9,16 +9,24 @@ function Detail() {
     const id = params.id;
     const IMAGE = "https://image.tmdb.org/t/p/w300"
     const [movie, setMovie] = useState("");
+    const [status, setStatus] = useState("loading");
 
     useEffect(() => {
         let ignore = false;
         async function fetchDetail() {
+            setStatus("loading");
             try {
                 const API_KEY = import.meta.env.VITE_API_KEY;
                 const response = await axios(`${ENDPOINTS.DETAIL}${id}?api_key=${API_KEY}`);
-                if (!ignore) setMovie(response.data);
+                if (!ignore) {
+                    setMovie(response.data);
+                    setStatus("ready");
+                }
             } catch (error) {
-                if (!ignore) console.error("Gagal memuat detail film:", error);
+                if (!ignore) {
+                    console.error("Gagal memuat detail film:", error);
+                    setStatus("error");
+                }
             }
         }
         fetchDetail();
@@ -26,6 +34,14 @@ function Detail() {
             ignore = true;
         };
     }, [id]);
+
+    if (status === "loading") {
+        return <p className={styles.detail__status}>Memuat detail film...</p>;
+    }
+
+    if (status === "error") {
+        return <p className={styles.detail__status}>Gagal memuat detail film. Coba lagi nanti.</p>;
+    }
 
     return (
         <div className={styles.backdrop} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${IMAGE + movie.backdrop_path})` }}>
