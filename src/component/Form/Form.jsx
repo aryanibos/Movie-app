@@ -11,7 +11,6 @@ function Form() {
     // const { movies, setMovies } = props;
     const [isTitleError, setisTitleError] = useState(false);
     const [isDateError, setisDateError] = useState(false);
-    const [isPosterError, setisPosterError] = useState(false);
 
 
     const handleSubmit = (e) => {
@@ -51,14 +50,9 @@ function Form() {
             setisTitleError(false);
             alert('Tahun Harus Di Isi');
             return false;
-        } else if (poster === "") {
-            setisPosterError(true);
-            alert('Poster Harus Di Isi');
-            return false;
         } else {
             setisTitleError(false);
             setisDateError(false);
-            setisPosterError(false);
             alert('Data Berhasil Di Input');
             return true;
         }
@@ -136,7 +130,7 @@ function Form() {
                                 value={poster}
                                 onChange={handlePoster}
                                 name="poster"
-                                className={isPosterError ? styles.inputError : ''}
+                                placeholder="Opsional, kosongkan untuk gambar default"
                             />
                         </div>
                         <button className={styles.form__button} type="submit">Submit</button>
