@@ -5,15 +5,23 @@ function Hero() {
     const [movie, setMovie] = useState("");
 
     useEffect(() => {
+        let ignore = false;
         async function fetchMovie() {
-            const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-            const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=tt2975590`;
-            const response = await fetch(url);
-            const data = await response.json();
+            try {
+                const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+                const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=tt2975590`;
+                const response = await fetch(url);
+                const data = await response.json();
 
-            setMovie(data);
+                if (!ignore) setMovie(data);
+            } catch (error) {
+                if (!ignore) console.error("Gagal memuat film hero:", error);
+            }
         }
         fetchMovie();
+        return () => {
+            ignore = true;
+        };
     }, []);
 
     return (
