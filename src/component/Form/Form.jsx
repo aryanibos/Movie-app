@@ -1,9 +1,9 @@
 import styles from "./Form.module.css";
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { nanoid } from "nanoid";
 import MovieContext from "../../context/MovieContext";
 
-function Form(props) {
+function Form() {
     const {createMovie} = useContext(MovieContext);
     const [title, setTitle] = useState('');
     const [year, setYear] = useState('');

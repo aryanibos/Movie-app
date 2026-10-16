@@ -1,6 +1,6 @@
 import { FaThreads } from "react-icons/fa6";
 import styles from "./Footer.module.css";
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
     return (

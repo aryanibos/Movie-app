@@ -1,4 +1,4 @@
-{
+export default {
     "adult": false,
     "backdrop_path": "/eG0oOQVsniPAuecPzDD1B1gnYWy.jpg",
     "belongs_to_collection": {
