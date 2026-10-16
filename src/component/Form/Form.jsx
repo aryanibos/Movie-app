@@ -2,6 +2,14 @@ import styles from "./Form.module.css";
 import { useContext, useState } from 'react';
 import MovieContext from "../../context/MovieContext";
 
+// crypto.randomUUID only exists in secure contexts (HTTPS or localhost).
+function createId() {
+    if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+        return crypto.randomUUID();
+    }
+    return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+}
+
 function Form() {
     const {createMovie} = useContext(MovieContext);
     const [title, setTitle] = useState('');
@@ -20,7 +28,7 @@ function Form() {
 
     function addMovie() {
         const movie = {
-            id: crypto.randomUUID(),
+            id: createId(),
             title: title,
             year: year,
             type: type,
