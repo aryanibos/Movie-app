@@ -11,12 +11,20 @@ function Detail() {
     const [movie, setMovie] = useState("");
 
     useEffect(() => {
+        let ignore = false;
         async function fetchDetail() {
-            const API_KEY = import.meta.env.VITE_API_KEY;
-            const response = await axios(`${ENDPOINTS.DETAIL}${id}?api_key=${API_KEY}`);
-            return setMovie(response.data)
+            try {
+                const API_KEY = import.meta.env.VITE_API_KEY;
+                const response = await axios(`${ENDPOINTS.DETAIL}${id}?api_key=${API_KEY}`);
+                if (!ignore) setMovie(response.data);
+            } catch (error) {
+                if (!ignore) console.error("Gagal memuat detail film:", error);
+            }
         }
         fetchDetail();
+        return () => {
+            ignore = true;
+        };
     }, [id]);
 
     return (

@@ -1,6 +1,5 @@
 import styles from "./Form.module.css";
 import { useContext, useState } from 'react';
-import { nanoid } from "nanoid";
 import MovieContext from "../../context/MovieContext";
 
 function Form() {
@@ -22,7 +21,7 @@ function Form() {
 
     function addMovie() {
         const movie = {
-            id: nanoid(),
+            id: crypto.randomUUID(),
             title: title,
             year: year,
             type: type,

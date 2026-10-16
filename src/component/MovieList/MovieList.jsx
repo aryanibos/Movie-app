@@ -1,4 +1,5 @@
 import styles from "./MovieList.module.css";
+import PropTypes from "prop-types";
 import Movie from "../Movie/Movie";
 
 
@@ -26,4 +27,9 @@ function MovieList(props) {
         </div>
     );
 }
+MovieList.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+    title: PropTypes.string,
+};
+
 export default MovieList;

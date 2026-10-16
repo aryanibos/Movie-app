@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styles from "./Movie.module.css";
 
@@ -15,4 +16,11 @@ function Movie(props) {
     );
 
 }
+Movie.propTypes = {
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    poster: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+};
+
 export default Movie;
