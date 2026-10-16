@@ -9,6 +9,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <MovieContextProvider>
         <App />
       </MovieContextProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
