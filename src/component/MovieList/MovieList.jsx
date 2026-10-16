@@ -14,6 +14,7 @@ function MovieList(props) {
                     <div className={styles.movie__container}>
                         {movies.map((movie) => (
                             <Movie key={movie.id}
+                                id={movie.id}
                                 poster={IMAGE + movie.poster_path}
                                 title={movie.title}
                                 year={movie.release_date}

@@ -4,7 +4,7 @@ import styles from "./Movie.module.css";
 function Movie(props) {
     const Navigate = useNavigate();
     return (
-        <div className={styles.movie} onClick={() => Navigate("/detail/"+movie.id)}>
+        <div className={styles.movie} onClick={() => props.id && Navigate("/detail/"+props.id)}>
             <img
                 className={styles.movie__image}
                 src={props.poster} alt=""

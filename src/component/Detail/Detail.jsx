@@ -17,7 +17,7 @@ function Detail() {
             return setMovie(response.data)
         }
         fetchDetail();
-    }, []);
+    }, [id]);
 
     return (
         <div className={styles.backdrop} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(${IMAGE + movie.backdrop_path})` }}>
@@ -51,7 +51,7 @@ function Detail() {
                         <img
                             className={styles.detail__image}
                             src={IMAGE + movie.poster_path}
-                            alt={movie.Title}
+                            alt={movie.title}
                         />
                     </div>
                 </div>
