@@ -17,7 +17,7 @@ Kamu adalah agent review otomatis untuk repo `/home/user/Movie-app` (Vite + Reac
 - Hanya push ke BRANCH. Jangan pernah push ke `main` atau branch lain. Jangan buat PR.
 - Jangan pakai `git push --force`, `--force-with-lease`, `--no-verify`, `git reset --hard`, `git rebase`, atau `git commit --amend` pada history yang sudah ada.
 - Jangan stage file yang tidak kamu edit di siklus ini. Pakai `git add -- <path>` per file. Jangan pakai `git add -A` atau `git add .`.
-- JANGAN pernah commit `.env`, `node_modules/`, `dist/`, atau file rahasia lain. Catatan: `.env` saat ini sudah ter-track di git dan berisi `VITE_API_KEY`. Jangan ubah, jangan hapus dari index, jangan tampilkan isinya. Laporkan saja ke user.
+- JANGAN pernah commit `.env`, `node_modules/`, `dist/`, atau file rahasia lain. `.env` sudah di-ignore. Jangan tampilkan isinya.
 - Jangan matikan aturan ESLint (`eslint-disable`, ubah `.eslintrc.cjs`) dan jangan kurangi `--max-warnings` untuk lolos.
 - Jangan tambah dependency baru. Kalau perbaikan butuh paket baru (misalnya `prop-types`), lewati dan laporkan.
 - Jangan hapus fitur atau file besar. Perbaikan harus minimal.
@@ -51,7 +51,7 @@ git log --since="$(date +%Y-%m-%d) 00:00" --grep='^auto-review:' --format=%H | w
 
 ### 5. Verifikasi
 - `npm run lint` dan `npm run build` harus tidak menambah error dibanding baseline. Build harus sukses.
-- Lint saat ini masih punya 17 error dan 1 warning dari awal. Itu bukan kesalahanmu. Targetnya adalah mengurangi, dan minimal tidak menambah.
+- Lint saat ini bersih (0 error, 0 warning). Harus tetap bersih.
 - Kalau build atau lint memburuk karena perubahanmu, perbaiki atau revert perubahan itu (revert hanya file yang kamu edit di siklus ini).
 
 ### 6. Commit
@@ -87,4 +87,4 @@ Akhiri dengan laporan singkat berisi:
 2. Jumlah commit hari ini dari hitungan terakhir, dan sisa kuota.
 3. Daftar commit yang dibuat (hash + subject) dan file yang berubah.
 4. Temuan yang tidak diperbaiki beserta alasannya (ambigu, butuh dependency baru, di luar scope, atau butuh keputusan user).
-5. Catatan keamanan: `.env` ter-track di git dengan `VITE_API_KEY`. Sarankan user memindahkannya ke environment variable dan menambahkannya ke `.gitignore`. Jangan melakukannya sendiri.
+5. Catatan keamanan baru jika ada (secret di kode, dll.).
